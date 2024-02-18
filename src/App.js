@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { createContext, useContext, useState } from "react";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import ProductSection from "./components/ProductSection";
+import ProductContext from "./Provider/ProductContext";
+
+const scroll = createContext();
+export const useScroll = () => useContext(scroll);
 
 function App() {
+  const [navState, setNavState] = useState([]);
+  const subNav = (navProps) => {
+    setNavState((prev) => (prev = navProps));
+  };
+  const [hidden, setHidden] = useState(false);
+  const toggle = () => {
+    setHidden((prev) => (prev = !prev));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <scroll.Provider value={{ hidden, toggle }}>
+      <div className="App w-screen max-w-screen-2xl">
+        <ProductContext>
+          <NavBar subNavigation={navState} />
+          <ProductSection subNav={subNav} />
+        </ProductContext>
+      </div>
+    </scroll.Provider>
   );
 }
 
