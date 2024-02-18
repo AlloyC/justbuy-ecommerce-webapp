@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/justbuy-ecommerce-webapp/static/css/main.b039b18e.css",
+    "main.js": "/justbuy-ecommerce-webapp/static/js/main.1ff26484.js",
+    "static/js/592.2aa08627.chunk.js": "/justbuy-ecommerce-webapp/static/js/592.2aa08627.chunk.js",
+    "index.html": "/justbuy-ecommerce-webapp/index.html",
+    "static/media/icon-cart.svg": "/justbuy-ecommerce-webapp/static/media/icon-cart.539ec608f50e707c94d583ec11acf99d.svg",
+    "static/media/icon-menu.svg": "/justbuy-ecommerce-webapp/static/media/icon-menu.c6107d03f1edcf73523ebd8cbc50a443.svg",
+    "main.b039b18e.css.map": "/justbuy-ecommerce-webapp/static/css/main.b039b18e.css.map",
+    "main.1ff26484.js.map": "/justbuy-ecommerce-webapp/static/js/main.1ff26484.js.map",
+    "592.2aa08627.chunk.js.map": "/justbuy-ecommerce-webapp/static/js/592.2aa08627.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b039b18e.css",
+    "static/js/main.1ff26484.js"
+  ]
+}
