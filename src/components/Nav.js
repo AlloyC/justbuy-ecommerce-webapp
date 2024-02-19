@@ -1,7 +1,7 @@
 import { useState } from "react";
 import closeImg from '../images/icon-menu.svg'; 
 import hamburger from '../images/icon-close.svg';
-import { FaCartPlus, FaSearch } from 'react-icons/fa'
+import { FaCartArrowDown, FaSearch, FaUserCircle } from 'react-icons/fa';
 
 function Nav () {
     // TOGGLE MENU
@@ -13,14 +13,15 @@ function Nav () {
     }
 
     return (
-        <nav>
-            <div className="flex gap-5">
-                <button onClick={toggleMenu} className="bg-transparent w-8 border-none md:hidden"><img src={showMenu? closeImg : hamburger} alt="hamburger/close icon" /></button>
-                <h1 className="font-bold">justbuy</h1>
+        <nav className="flex justify-between p-5 border-b-2">
+            <div className="flex gap-2">
+                <button onClick={toggleMenu} className="bg-transparent w-8 border-none md:hidden"><img src={showMenu? hamburger : closeImg} alt="hamburger/close icon" /></button>
+                <h1 className="font-bold text-xl md:text-2xl capitalize">justbuy</h1>
             </div>
-            <div className="flex gap-5">
-                <FaSearch/>
-                <FaCartPlus/>
+            <div className="flex items-center gap-5">
+                <button><FaSearch/></button>
+                <button><FaCartArrowDown/></button>
+                <button><FaUserCircle/></button>
             </div>
         </nav>
     )
