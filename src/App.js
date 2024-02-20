@@ -1,11 +1,14 @@
 import "./App.css";
+import MainContext from "./Provider/MainContex";
 import Nav from "./components/Nav";
 
 function App() {
 
   return (
     <main>
-      <Nav/>
+      <MainContext>
+        <Nav/>
+      </MainContext>
     </main>
   );
 }

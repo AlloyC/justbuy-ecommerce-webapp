@@ -4,3 +4,13 @@
   margin: 0;
   overflow-x: hidden;
 }
+
+.sub-nav::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .grid-auto-flow {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+}
