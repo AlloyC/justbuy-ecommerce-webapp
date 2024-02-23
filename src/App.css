@@ -14,3 +14,36 @@
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
 }
+
+/* .search { */
+/* animation-name: expandSearch;
+  animation-duration: 1500ms;
+  animation-iteration-count: initial;
+  animation-timing-function: linear; */
+/* } */
+
+/* .search-reverse { */
+/* animation-name: expandSearch;
+  animation-duration: 1200ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-direction: reverse; */
+/* } */
+
+/* @keyframes expandSearch {
+  0% {
+    border-radius: 50%;
+    width: 2rem;
+  }
+  20% {
+    border-radius: 50%;
+    width: 2rem;
+  }
+  30% {
+    border-radius: 0.75rem;
+  }
+  100% {
+    border-radius: 1rem;
+    width: 75%;
+  }
+} */

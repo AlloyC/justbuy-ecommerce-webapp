@@ -3,11 +3,10 @@ import MainContext from "./Provider/MainContex";
 import Nav from "./components/Nav";
 
 function App() {
-
   return (
-    <main>
+    <main className="min-h-screen">
       <MainContext>
-        <Nav/>
+        <Nav />
       </MainContext>
     </main>
   );
