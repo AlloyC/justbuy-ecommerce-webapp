@@ -4,6 +4,9 @@ import {createContext, useContext, useEffect, useState} from 'react';
 export const useCategories = () => useContext(navProvider);
 const navProvider = createContext() 
 
+export const useSearch = () => useContext(search);
+const search = createContext();
+
 const MainContext = ({children}) => {
     const [navigator, setNavitor] = useState([]);
     
@@ -13,6 +16,11 @@ const MainContext = ({children}) => {
         const data = await res.json();
         return data;
     }
+    
+    // SEARCH VALUE
+    const [searchVal, setSearchVal] = useState('');
+
+    const searchFunction = (input) => setSearchVal(prev => prev = input);
 
     useEffect( () => {
         (async function () {
@@ -23,7 +31,9 @@ const MainContext = ({children}) => {
 
     return (
         <navProvider.Provider value={navigator}>
-            {children}
+            <search.Provider value={{searchVal, searchFunction}}>
+                {children}
+            </search.Provider>
         </navProvider.Provider>
     )
 }
