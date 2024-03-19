@@ -57,7 +57,7 @@ const previous = () => {
 // (() => refArray.current.filter(element => element.ariaSelected === true).map(element => <>{element}</>))()
 
   return (
-  <div className="y-5 w-full flex flex-col md:flex-row justify-center md:items-center gap-10 ">
+  <div className={`y-5 w-full flex flex-col ${card? " gap-0" : "md:flex-row md:items-center gap-10"} justify-center  `}>
   { thumbnails ? 
   <div className=''>
     {/* the main image */}
@@ -78,14 +78,14 @@ const previous = () => {
         <img src={image} className="rounded-md h-20" alt="" />
       </div>)}
 </div>
-  </div>: <img className="rounded-md" src={images[0]} alt="" />}
-    <div className="p-5 md:w-96 flex flex-col gap-4">
+  </div>: <img className="rounded-md h-60 md:h-48" src={images[0]} alt="" />}
+    <div className={`${card? "pt-5" :"md:w-96 p-5"} flex flex-col gap-4`}>
       {company && <h4 className='font-semibold -mb-3 text-orange-500'>{company}</h4>}
-      <h3 className="font-bold capitalize text-2xl text-gray-800">{title}</h3>
+      <h3 className={`font-bold capitalize ${card ? '' : 'text-2xl'} text-gray-800`}>{title}</h3>
       {description && <p className="text-gray-500 font-medium">{description}</p>}
       <div className="flex justify-between">
         <div className="flex items-start gap-3
-        "><span className="font-bold text-gray-800 text-2xl -mt-0.5">${price - Math.floor(price * percentage / 100) }</span>
+        "><span className={`font-bold  ${card ? "text-xl text-gray-600 -mt-1":"text-gray-800 text-2xl -mt-0.5"} `}>${price - Math.floor(price * percentage / 100) }</span>
         {!card && <span className="p-1 leading-none mt-1  bg-orange-100 rounded-sm text-orange-500 text-xs">{percentage}%</span>}</div>
         {!card && <span className="text-gray-400 line-through font-medium">${price}</span>}
       </div>
