@@ -58,10 +58,10 @@ function Nav () {
     // SEARCH REF
     const searchRef = useRef();
 
-    const categoryNavigation = useCategories();
+    const {navigator: categoryNavigation} = useCategories();
 
     return (
-        <nav className="flex fixed top-0 w-screen justify-between p-5 border-b-2">
+        <nav className="flex fixed top-0 bg-white w-screen justify-between p-5 border-b-2 h-20 z-20">
             <div className="flex z-20 gap-2">
                 <button onClick={toggleMenu} className="bg-transparent w-8 border-none md:hidden"><img src={showMenu? hamburger : closeImg} alt="hamburger/close icon" /></button>
                 <h1 className="font-bold text-xl md:text-2xl capitalize">justbuy</h1>
@@ -85,7 +85,7 @@ function Nav () {
                 <li><Link to='/contact'>Contact</Link></li>
             </ul>
             </div>
-            <ul aria-label="category subnavigation" className={` hidden transition z-50 backdrop-blur-[1px] duration-700 border-2 ${showSubMenu?'p-5 md:fixed md:opacity-100 md:h-auto md:grid grid-auto-flow md:w-screen md:top-20 md:-mt-2 md:left-0 md:gap-3': 'md:block md:opacity-0 md:h-0 md:w-0 p-0 mt-0 border-none'}`}>
+            <ul aria-label="category subnavigation" className={`bg-white hidden transition z-50 backdrop-blur-[1px] duration-700 border-2 ${showSubMenu?'p-5 md:fixed md:opacity-100 md:h-auto md:grid grid-auto-flow md:w-screen md:top-20 md:-mt-2 md:left-0 md:gap-3': 'md:block md:opacity-0 md:h-0 md:w-0 p-0 mt-0 border-none'}`}>
                         {categoryNavigation.map(subCat => {
                             return (
                                 <li key={subCat}>
