@@ -1,4 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { db } from "../firebase-config";
+import { collection, getDocs } from "firebase/firestore";
 import image1 from "../images/image-1.jpg";
 import image2 from "../images/image-2.jpg";
 import image3 from "../images/image-3.jpg";
@@ -13,6 +15,7 @@ const search = createContext();
 export const useSlider = () => useContext(slider);
 const slider = createContext();
 
+//CONTEXT FUNCTION
 function MainContext({ children }) {
   const sliderImg = [image1, image2, image3];
 
@@ -20,11 +23,13 @@ function MainContext({ children }) {
   const [allProduct, setAllProduct] = useState([]);
 
   //  FETCHING PRODUCTS
-  const fetchProducts = async () => {
-    const res = await fetch("https://dummyjson.com/products?limit=0");
-    const data = await res.json();
-    return data;
-  };
+  // const fetchProducts = async () => {
+  //   const res = await fetch("https://dummyjson.com/products?limit=0");
+  //   const data = await res.json();
+  //   return data;
+  // };
+
+  const productsRef = collection(db, "products");
 
   // FETCHING CATEGORIES FOR NAVIGATION
   const fetchCategories = async () => {
@@ -41,9 +46,12 @@ function MainContext({ children }) {
   useEffect(() => {
     (async function () {
       const categories = await fetchCategories();
-      const products = await fetchProducts();
-      setAllProduct((prev) => (prev = products));
+      // const products = await fetchProducts();
+      // setAllProduct((prev) => (prev = products));
       setNavigator((prev) => (prev = categories));
+
+      const data = await getDocs(productsRef);
+      setAllProduct(data.docs.map((doc) => ({ ...doc.data() })));
     })();
   }, []);
 
